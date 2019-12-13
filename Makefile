@@ -3,9 +3,9 @@ CXX=$(CROSS_COMPILE)g++
 LD=$(CROSS_COMPILE)ld
 
 OPT=-O2
-CFLAGS=-Wall $(XCFLAGS) $(INC) $(OPT)
-CXXFLAGS=-Wall $(XCFLAGS) $(INC) $(OPT)
-LDFLAGS=-Wall $(XLDFLAGS)
+CFLAGS=-Wall -Wno-narrowing -Wno-unused-result $(XCFLAGS) $(INC) $(OPT)
+CXXFLAGS=-Wall -Wno-narrowing -Wno-unused-result $(XCFLAGS) $(INC) $(OPT)
+LDFLAGS=-Wall -Wno-narrowing -Wno-unused-result $(XLDFLAGS)
 LIBS=-lcrypto
 THREADLIB=-lpthread
 SLIBS=$(THREADLIB) $(LIBS)
