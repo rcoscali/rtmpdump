@@ -21,8 +21,9 @@ CRYPTO_DEF=$(DEF_$(CRYPTO))
 
 DEF=-DRTMPDUMP_VERSION=\"$(VERSION)\" $(CRYPTO_DEF) $(XDEF)
 OPT=-O2
-CFLAGS=-Wall $(XCFLAGS) $(INC) $(DEF) $(OPT)
-LDFLAGS=-Wall $(XLDFLAGS)
+CFLAGS=-Wall -Wno-pointer-sign -Wno-unused-const-variable -Wno-unused-but-set-variable $(XCFLAGS) $(INC) $(DEF) $(OPT)
+CXXFLAGS=-Wall -Wno-pointer-sign -Wno-unused-const-variable -Wno-unused-but-set-variable $(XCFLAGS) $(INC) $(DEF) $(OPT)
+LDFLAGS=-Wall -Wno-pointer-sign -Wno-unused-const-variable -Wno-unused-but-set-variable $(XLDFLAGS)
 
 bindir=$(prefix)/bin
 sbindir=$(prefix)/sbin
@@ -91,4 +92,5 @@ rtmpgw.o: rtmpgw.c $(INCRTMP) Makefile
 rtmpdump.o: rtmpdump.c $(INCRTMP) Makefile
 rtmpsrv.o: rtmpsrv.c $(INCRTMP) Makefile
 rtmpsuck.o: rtmpsuck.c $(INCRTMP) Makefile
+
 thread.o: thread.c thread.h

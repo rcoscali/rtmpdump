@@ -74,7 +74,7 @@ SO_INST=$(SOINST_$(SHARED))
 
 DEF=-DRTMPDUMP_VERSION=\"$(VERSION)\" $(CRYPTO_DEF) $(XDEF)
 OPT=-O2
-CFLAGS=-Wall $(XCFLAGS) $(INC) $(DEF) $(OPT) $(SO_DEF)
+CFLAGS=-Wall -Wno-pointer-sign -Wno-unused-const-variable -Wno-unused-but-set-variable $(XCFLAGS) $(INC) $(DEF) $(OPT) $(SO_DEF)
 LDFLAGS=$(XLDFLAGS)
 
 
