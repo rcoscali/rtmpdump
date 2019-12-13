@@ -3,6 +3,9 @@ RTMP Dump v1.9
 (C) 2009 Howard Chu
 License: GPLv2
 
+Port for Ubuntu 19.10 & OpenSSL 1.1
+(C) Rémi Cohen-Scali 2019
+
 To compile type "make" with your platform name, e.g.
 
   $ make linux
