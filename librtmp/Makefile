@@ -1,6 +1,8 @@
 VERSION=v2.4
 
-prefix=/usr/local
+PREFIX:=/usr/local
+
+prefix=$(PREFIX)
 
 incdir=$(prefix)/include/librtmp
 bindir=$(prefix)/bin
@@ -108,6 +110,7 @@ librtmp.pc: librtmp.pc.in Makefile
 install:	install_base $(SO_INST)
 
 install_base:	librtmp.a librtmp.pc
+	@echo "Installing librtmp libs and headers in $(LIBDIR), $(SODIR), $(INCDIR) and docs in $(MANDIR) ..."
 	-mkdir -p $(INCDIR) $(LIBDIR)/pkgconfig $(MANDIR)/man3 $(SODIR)
 	cp amf.h http.h log.h rtmp.h $(INCDIR)
 	cp librtmp.a $(LIBDIR)

@@ -1,6 +1,8 @@
 VERSION=v2.4
 
-prefix=/usr/local
+PREFIX:=/usr/local
+
+prefix:=$(PREFIX)
 
 CC=$(CROSS_COMPILE)gcc
 LD=$(CROSS_COMPILE)ld
@@ -60,6 +62,7 @@ all:	$(LIBRTMP) $(PROGS)
 $(PROGS): $(LIBRTMP)
 
 install:	$(PROGS)
+	@echo "Installing rtmpdump programs in $(BINDIR), $(SBINDIR) and docs in $(MANDIR) ..."
 	-mkdir -p $(BINDIR) $(SBINDIR) $(MANDIR)/man1 $(MANDIR)/man8
 	cp rtmpdump$(EXT) $(BINDIR)
 	cp rtmpgw$(EXT) rtmpsrv$(EXT) rtmpsuck$(EXT) $(SBINDIR)
@@ -69,6 +72,7 @@ install:	$(PROGS)
 
 clean:
 	rm -f *.o rtmpdump$(EXT) rtmpgw$(EXT) rtmpsrv$(EXT) rtmpsuck$(EXT)
+	@find . \( -type d -name .git -prune \) -o \( -type f -perm -111 -exec rm -f {} \; \)
 	@cd librtmp; $(MAKE) clean
 
 FORCE:
