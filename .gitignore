@@ -18,3 +18,9 @@ rtmpsuck
 stream.flv
 
 streams
+
+inst/
+
+install/
+
+*.orig
