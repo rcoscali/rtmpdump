@@ -7,3 +7,11 @@ rtmpdump
 rtmpgw
 rtmpsrv
 rtmpsuck
+
+inst/
+
+install/
+
+*.orig
+
+*.flv
